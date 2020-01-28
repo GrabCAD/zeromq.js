@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "4.6.0",
+  "version": "4.6.0-eagle.3",
   "description": "Prebuilt bindings for node.js to ZeroMQ",
   "main": "index",
   "gypfile": true,
@@ -31,7 +31,6 @@
     "install": "node scripts/install.js",
     "prebuild": "prebuild --all --strip",
     "build:docs": "jsdoc -R README.md -d docs lib/*.js",
-    "postpublish": "./scripts/trigger_travis_build.sh",
     "test": "mocha --expose-gc --slow 300",
     "test:electron": "electron-mocha --slow 300",
     "precoverage": "nyc npm run test",
@@ -48,5 +47,8 @@
     "addon"
   ],
   "license": "MIT",
-  "author": "Justin Tulloss <justin.tulloss@gmail.com> (http://justin.harmonize.fm)"
+  "author": "Justin Tulloss <justin.tulloss@gmail.com> (http://justin.harmonize.fm)",
+  "publishConfig": {
+    "registry": "https://artifactory6.grabcad.net/artifactory/api/npm/npm-local/"
+  }
 }
