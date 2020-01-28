@@ -1,37 +1,52 @@
+# Notes for eagle developers
+
+We had to fork this repo because we were unable to build and run node versions
+(for unit-tests), whilst also having a build that would run with electron (for
+grunt run & packaging).
+
+The repo is a fork of the origin, so can be merged up from the fork - we have
+put our code onto the `v4.6.0-eagle.3` branch as we want to use 4.6.0 at the
+moment. When happy with changes use `npm publish` \* making sure that the
+package.json is set to publish to our artifactory6.
+
 # ZeroMQ.js Next Generation
 
-[![Latest version](https://img.shields.io/npm/v/zeromq?label=version)](https://www.npmjs.com/package/zeromq) [![Greenkeeper monitoring](https://img.shields.io/badge/dependencies-monitored-brightgreen)](https://greenkeeper.io/) [![Travis build status](https://img.shields.io/travis/zeromq/zeromq.js)](https://travis-ci.org/zeromq/zeromq.js)
+[![Latest version](https://img.shields.io/npm/v/zeromq?label=version)](https://www.npmjs.com/package/zeromq)
+[![Greenkeeper monitoring](https://img.shields.io/badge/dependencies-monitored-brightgreen)](https://greenkeeper.io/)
+[![Travis build status](https://img.shields.io/travis/zeromq/zeromq.js)](https://travis-ci.org/zeromq/zeromq.js)
 
 ## ⚠️ Version 6.0.0 (in beta) features a brand new API that solves many fundamental issues and is recommended for new projects. For the current stable version see the [5.x branch](https://github.com/zeromq/zeromq.js/tree/5.x) ⚠️
 
 [ØMQ](http://zeromq.org) bindings for Node.js. The goals of this library are:
-* Semantically similar to the [native](https://github.com/zeromq/libzmq) ØMQ library, while sticking to JavaScript idioms.
-* Use modern JavaScript and Node.js features such as `async`/`await` and async iterators.
-* High performance.
-* Fully usable with TypeScript (3+).
+
+- Semantically similar to the [native](https://github.com/zeromq/libzmq) ØMQ
+  library, while sticking to JavaScript idioms.
+- Use modern JavaScript and Node.js features such as `async`/`await` and async
+  iterators.
+- High performance.
+- Fully usable with TypeScript (3.6+).
 
 ### Useful links
 
-* [ZeroMQ.js API reference](http://zeromq.github.io/zeromq.js/globals.html).
-* [ZeroMQ project documentation](https://zeromq.org/get-started/).
-  * **Note:** The Node.js examples on zeromq.org do not yet reflect the new API, but [the Guide](http://zguide.zeromq.org) in particular is still a good introduction to ZeroMQ for new users.
-
+- [ZeroMQ.js API reference](http://zeromq.github.io/zeromq.js/globals.html).
+- [ZeroMQ project documentation](https://zeromq.org/get-started/).
+  - **Note:** The Node.js examples on zeromq.org do not yet reflect the new API,
+    but [the Guide](http://zguide.zeromq.org) in particular is still a good
+    introduction to ZeroMQ for new users.
 
 # Table of contents
 
-* [Installation](#installation)
-   * [Prebuilt binaries](#prebuilt-binaries)
-   * [Building from source](#building-from-source)
-* [Examples](#examples)
-   * [Push/Pull](#pushpull)
-   * [Pub/Sub](#pubsub)
-   * [Req/Rep](#reqrep)
-   * [TypeScript](#typescript)
-   * [More examples](#more-examples)
-   * [Compatibility layer for version 4/5](#compatibility-layer-for-version-45)
-* [Contribution](#contribution)
-* [History](#history)
-
+- [Installation](#installation)
+  - [Prebuilt binaries](#prebuilt-binaries)
+  - [Building from source](#building-from-source)
+- [Examples](#examples)
+  - [Push/Pull](#pushpull)
+  - [Pub/Sub](#pubsub)
+  - [Req/Rep](#reqrep)
+  - [More examples](#more-examples)
+  - [Compatibility layer for version 4/5](#compatibility-layer-for-version-45)
+- [Contribution](#contribution)
+- [History](#history)
 
 # Installation
 
@@ -43,35 +58,39 @@ npm install zeromq@6.0.0-beta.6
 
 Requirements for prebuilt binaries:
 
-* Node.js 10.2+ or Electron 3+ (requires a [N-API](https://nodejs.org/api/n-api.html) version 3+)
-
+- Node.js 10.2+ or Electron 3+ (requires a
+  [N-API](https://nodejs.org/api/n-api.html) version 3+)
 
 ## Prebuilt binaries
 
 The following platforms have a **prebuilt binary** available:
 
-* Linux on x86-64/armv7/armv8 with libstdc++.so.6.0.21+ (glibc++ 3.4.21+), for example:
-  * Debian 9+ (Stretch or later)
-  * Ubuntu 16.04+ (Xenial or later)
-  * CentOS 8+
-* Linux on x86-64 with musl, for example:
-  * Alpine 3.3+
-* MacOS 10.9+ on x86-64
-* Windows on x86/x86-64
+- Linux on x86-64/armv7/armv8 with libstdc++.so.6.0.21+ (glibc++ 3.4.21+), for
+  example:
+  - Debian 9+ (Stretch or later)
+  - Ubuntu 16.04+ (Xenial or later)
+  - CentOS 8+
+- Linux on x86-64 with musl, for example:
+  - Alpine 3.3+
+- MacOS 10.9+ on x86-64
+- Windows on x86/x86-64
 
-If a prebuilt binary is not available for your platform, installing will attempt to start a build from source.
+If a prebuilt binary is not available for your platform, installing will attempt
+to start a build from source.
 
 ## Building from source
 
-If a prebuilt binary is unavailable or if you want to pass certain options during build, you can build this package from source.
+If a prebuilt binary is unavailable or if you want to pass certain options
+during build, you can build this package from source.
 
-Make sure you have the following installed before attempting to build from source:
+Make sure you have the following installed before attempting to build from
+source:
 
-* Node.js 10+ or Electron 3+
-* A working C++17 compiler toolchain with make
-* Python 2.7 (or Python 3 with Node 12.13+)
-* CMake 2.8+
-* curl
+- Node.js 10+ or Electron 3+
+- A working C++17 compiler toolchain with make
+- Python 2.7 (or Python 3 with Node 12.13+)
+- CMake 2.8+
+- curl
 
 To install from source
 
@@ -79,13 +98,15 @@ To install from source
 npm install zeromq@6.0.0-beta.6 --build-from-source
 ```
 
-If you want to link against a shared ZeroMQ library, you can build skip downloading libzmq and link with the installed library instead as follows:
+If you want to link against a shared ZeroMQ library, you can build skip
+downloading libzmq and link with the installed library instead as follows:
 
 ```sh
 npm install zeromq@6.0.0-beta.6 --zmq-shared
 ```
 
-If you wish to use any DRAFT sockets then it is also necessary to compile the library from source:
+If you wish to use any DRAFT sockets then it is also necessary to compile the
+library from source:
 
 ```sh
 npm install zeromq@6.0.0-beta.6 --zmq-draft
@@ -93,14 +114,16 @@ npm install zeromq@6.0.0-beta.6 --zmq-draft
 
 # Examples
 
-**Note:** The examples assume the reader is familiar with ZeroMQ. If you are new to ZeroMQ, please start with the [ZeroMQ documentation](https://zeromq.org/get-started/).
+**Note:** The examples assume the reader is familiar with ZeroMQ. If you are new
+to ZeroMQ, please start with the
+[ZeroMQ documentation](https://zeromq.org/get-started/).
 
 More examples can be found in the [examples directory](examples).
 
 ## Push/Pull
 
-This example demonstrates how a producer pushes information onto a
-socket and how a worker pulls information from the socket.
+This example demonstrates how a producer pushes information onto a socket and
+how a worker pulls information from the socket.
 
 ### producer.js
 
@@ -108,7 +131,7 @@ socket and how a worker pulls information from the socket.
 const zmq = require("zeromq")
 
 async function run() {
-  const sock = new zmq.Push
+  const sock = new zmq.Push()
 
   await sock.bind("tcp://127.0.0.1:3000")
   console.log("Producer bound to port 3000")
@@ -128,7 +151,7 @@ run()
 const zmq = require("zeromq")
 
 async function run() {
-  const sock = new zmq.Pull
+  const sock = new zmq.Pull()
 
   sock.connect("tcp://127.0.0.1:3000")
   console.log("Worker connected to port 3000")
@@ -141,7 +164,6 @@ async function run() {
 run()
 ```
 
-
 ## Pub/Sub
 
 This example demonstrates using `zeromq` in a classic Pub/Sub,
@@ -153,7 +175,7 @@ Publisher/Subscriber, application.
 const zmq = require("zeromq")
 
 async function run() {
-  const sock = new zmq.Publisher
+  const sock = new zmq.Publisher()
 
   await sock.bind("tcp://127.0.0.1:3000")
   console.log("Publisher bound to port 3000")
@@ -174,20 +196,24 @@ run()
 const zmq = require("zeromq")
 
 async function run() {
-  const sock = new zmq.Subscriber
+  const sock = new zmq.Subscriber()
 
   sock.connect("tcp://127.0.0.1:3000")
   sock.subscribe("kitty cats")
   console.log("Subscriber connected to port 3000")
 
   for await (const [topic, msg] of sock) {
-    console.log("received a message related to:", topic, "containing message:", msg)
+    console.log(
+      "received a message related to:",
+      topic,
+      "containing message:",
+      msg,
+    )
   }
 }
 
 run()
 ```
-
 
 ## Req/Rep
 
@@ -197,7 +223,7 @@ run()
 const zmq = require("zeromq")
 
 async function run() {
-  const sock = new zmq.Request
+  const sock = new zmq.Request()
 
   sock.connect("tcp://127.0.0.1:3000")
   console.log("Producer bound to port 3000")
@@ -217,7 +243,7 @@ run()
 const zmq = require("zeromq")
 
 async function run() {
-  const sock = new zmq.Reply
+  const sock = new zmq.Reply()
 
   await sock.bind("tcp://127.0.0.1:3000")
 
@@ -229,40 +255,21 @@ async function run() {
 run()
 ```
 
-## TypeScript
-
-The library provides typings for TypeScript version 3.0.x and later.
-
-
- * _Requirements_
-  * TypeScript version >= 3
-  * [compilerOptions](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
-    for TypeScript version < 3.6:
-    * either set `compilerOptions.target` to `esnext` or later (e.g. `es2018`)
-    * or add the following, or similar, libraries to `compilerOptions.lib`
-      (and include their corresponding polyfills if needed):
-      `es2015`, `ESNext.AsyncIterable`
- * _Example Usage_
-  ```typescript
-  import { Request } from "zeromq"
-  // or as namespace
-  import * as zmq from "zeromq"
-
-  const reqSock = new Request()
-  //...
-  const repSock = new zmq.Reply()
-  ```
-
 ## More examples
 
-More advanced examples can be found in the [examples](examples) directory of this repository.
+More advanced examples can be found in the [examples](examples) directory of
+this repository.
 
-Or you can [browse the API reference documentation](http://zeromq.github.io/zeromq.js/globals.html) to see all socket types, methods & options as well as more detailed information about how to apply them.
-
+Or you can
+[browse the API reference documentation](http://zeromq.github.io/zeromq.js/globals.html)
+to see all socket types, methods & options as well as more detailed information
+about how to apply them.
 
 ## Compatibility layer for version 4/5
 
-The next generation version of the library features a compatibility layer for ZeroMQ.js versions 4 and 5. This is recommended for users upgrading from previous versions.
+The next generation version of the library features a compatibility layer for
+ZeroMQ.js versions 4 and 5. This is recommended for users upgrading from
+previous versions.
 
 Example:
 
@@ -285,20 +292,23 @@ pub.bind("tcp://*:3456", err => {
 })
 ```
 
-
 # Contribution
-
 
 ## Dependencies
 
-In order to develop and test the library, you'll need the tools required to build from source ([see above](#building-from-source)).
+In order to develop and test the library, you'll need the tools required to
+build from source ([see above](#building-from-source)).
 
 Additionally, having clang-format is strongly recommended.
 
-
 ## Defining new options
 
-Socket and context options can be set at runtime, even if they are not implemented by this library. By design, this requires no recompilation if the built version of ZeroMQ has support for them. This allows library users to test and use options that have been introduced in recent versions of ZeroMQ without having to modify this library. Of course we'd love to include support for new options in an idiomatic way.
+Socket and context options can be set at runtime, even if they are not
+implemented by this library. By design, this requires no recompilation if the
+built version of ZeroMQ has support for them. This allows library users to test
+and use options that have been introduced in recent versions of ZeroMQ without
+having to modify this library. Of course we'd love to include support for new
+options in an idiomatic way.
 
 Options can be set as follows:
 
@@ -322,13 +332,17 @@ class MyDealer extends Dealer {
 const sock = new MyDealer({sendHighWaterMark: 456})
 ```
 
-When submitting pull requests for new socket/context options, please consider the following:
+When submitting pull requests for new socket/context options, please consider
+the following:
 
-* The option is documented in the TypeScript interface.
-* The option is only added to relevant socket types, and if the ZMQ_ constant has a prefix indicating which type it applies to, it is stripped from the name as it is exposed in JavaScript.
-* The name as exposed in this library is idiomatic for JavaScript, spelling out any abbreviations and using proper `camelCase` naming conventions.
-* The option is a value that can be set on a socket, and you don't think it should actually be a method.
-
+- The option is documented in the TypeScript interface.
+- The option is only added to relevant socket types, and if the ZMQ\_ constant
+  has a prefix indicating which type it applies to, it is stripped from the name
+  as it is exposed in JavaScript.
+- The name as exposed in this library is idiomatic for JavaScript, spelling out
+  any abbreviations and using proper `camelCase` naming conventions.
+- The option is a value that can be set on a socket, and you don't think it
+  should actually be a method.
 
 ## Testing
 
@@ -348,13 +362,15 @@ yarn run dev:build
 yarn run dev:test
 ```
 
-The test suite will validate and fix the coding style, run all unit tests and verify the validity of the included TypeScript type definitions.
+The test suite will validate and fix the coding style, run all unit tests and
+verify the validity of the included TypeScript type definitions.
 
 Some tests are not enabled by default:
 
-* API Compatibility tests from ZeroMQ 5.x have been disabled by default. You can include the tests with `INCLUDE_COMPAT_TESTS=1 npm run dev:test`
-* Some transports are not reliable on some older versions of ZeroMQ, the relevant tests will be skipped for those versions automatically.
-
+- API Compatibility tests from ZeroMQ 5.x have been disabled by default. You can
+  include the tests with `INCLUDE_COMPAT_TESTS=1 npm run dev:test`
+- Some transports are not reliable on some older versions of ZeroMQ, the
+  relevant tests will be skipped for those versions automatically.
 
 ## Publishing
 
@@ -365,11 +381,17 @@ npm version <new version>
 git push && git push --tags
 ```
 
-Wait for continuous integration to finish. Prebuilds will be generated for all supported platforms and attached to a Github release. Documentation is automatically generated and committed to `gh-pages`. Finally, a new NPM package version will be automatically released.
-
+Wait for continuous integration to finish. Prebuilds will be generated for all
+supported platforms and attached to a Github release. Documentation is
+automatically generated and committed to `gh-pages`. Finally, a new NPM package
+version will be automatically released.
 
 # History
 
-Version 6+ is a complete rewrite of previous versions of ZeroMQ.js in order to be more reliable, correct, and usable in modern JavaScript & TypeScript code as first outlined in [this issue](https://github.com/zeromq/zeromq.js/issues/189). Previous versions of ZeroMQ.js were based on `zmq` and a fork that included prebuilt binaries.
+Version 6+ is a complete rewrite of previous versions of ZeroMQ.js in order to
+be more reliable, correct, and usable in modern JavaScript & TypeScript code as
+first outlined in [this issue](https://github.com/zeromq/zeromq.js/issues/189).
+Previous versions of ZeroMQ.js were based on `zmq` and a fork that included
+prebuilt binaries.
 
 See detailed changes in the [CHANGELOG](CHANGELOG.md).
