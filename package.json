@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "4.6.0-eagle.6",
+  "version": "4.6.0-eagle.7",
   "description": "Prebuilt bindings for node.js to ZeroMQ",
   "main": "index",
   "gypfile": true,
