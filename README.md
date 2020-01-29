@@ -1,3 +1,41 @@
+# Notes for eagle developers
+
+We had to fork this repo because we were unable to build and run node versions
+(for unit-tests), whilst also having a build that would run with electron (for
+grunt run & packaging).
+
+The repo is a fork of the origin, so can be merged up from the fork - we have
+put our code onto the `v4.6.0-eagle.3` branch as we want to use 4.6.0 at the
+moment. When happy with changes use `npm publish` \* making sure that the
+package.json is set to publish to our artifactory6.
+
+We check in (& ship) built binaries for node and electron the scripts for
+building zeromq have been commented out in the package.json: -
+
+```json
+  "scripts": {
+    "build:libzmq": "node scripts/preinstall.js",
+    "doInstall": "node scripts/prebuild-install.js || (node scripts/preinstall.js && node-gyp rebuild)",
+    "commented-install": "node scripts/install.js",
+    "prebuild": "prebuild --all --strip",
+    "build:docs": "jsdoc -R README.md -d docs lib/*.js",
+    "test": "mocha --expose-gc --slow 300",
+    "test:electron": "electron-mocha --slow 300",
+    "precoverage": "nyc npm run test",
+    "coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+  },
+```
+
+to rebuild: -
+
+1. Change `"commented-install"` to `"install"` and (with the correct version of node / electron available)
+2. Ensure you have the  correct node available `nvm use 12.0.0` (or whichever version you need)
+3. Run `npm install` -> this should create  `bin/node/zmq.node`
+4. Run `./node_modules/.bin/electron-rebuild.cmd -v5.0.13` (or what ever version of electron you want to build for).
+5. Run `node scripts/post-electron-build.js` -> this should create `bin/electron/zmq.node`.
+6. Change `"install"` back to `"commented-install"` and make sure teh version is bumped ... eagle.n+1
+7. Run `npm publish`
+
 # zeromq
 
 [![codecov](https://codecov.io/gh/zeromq/zeromq.js/branch/master/graph/badge.svg)](https://codecov.io/gh/zeromq/zeromq.js)
