@@ -2,7 +2,6 @@
 *.swo
 *.o
 build
-bin
 *.lock*
 binding.node
 examples/stress-test-client
@@ -27,3 +26,4 @@ coverage
 coverage.lcov
 
 package-lock.json
+binding.gyp
