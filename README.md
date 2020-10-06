@@ -31,7 +31,8 @@ to rebuild: -
 1. Change `"commented-install"` to `"install"` and (with the correct version of node / electron available)
 2. Ensure you have the  correct node available `nvm use 12.0.0` (or whichever version you need)
 3. Run `npm install` -> this should create  `bin/node/zmq.node`
-4. Run `./node_modules/.bin/electron-rebuild.cmd -v5.0.13` (or what ever version of electron you want to build for).
+4. Edit `./scripts/electron_build.js` to use teh correct version of electron.
+4. Run `node scripts/electron_build.js`.
 5. Run `node scripts/post-electron-build.js` -> this should create `bin/electron/zmq.node`.
 6. Change `"install"` back to `"commented-install"` and make sure teh version is bumped ... eagle.n+1
 7. Run `npm publish`
