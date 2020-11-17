@@ -1558,4 +1558,6 @@ extern "C" NAN_MODULE_INIT(init) {
   zmq::Initialize(target);
 }
 
-NODE_MODULE(zmq, init)
+// We only use zmq in one renderer process
+// so this should be safe
+NAN_MODULE_WORKER_ENABLED(zmq, init)
