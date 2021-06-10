@@ -9,6 +9,9 @@
       'include_dirs' : ["<!(node -e \"require('nan')\")"],
       'cflags!': ['-fno-exceptions'],
       'cflags_cc!': ['-fno-exceptions'],
+      'msvs_settings': {
+            'VCCLCompilerTool': {'UndefinePreprocessorDefinitions': 'V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS'},
+      },
       'conditions': [
         ["zmq_external == 'true'", {
           'link_settings': {

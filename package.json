@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "5.1.1-eagle.2",
+  "version": "5.1.1-eagle.3",
   "description": "Prebuilt bindings for node.js to ZeroMQ",
   "main": "index",
   "gypfile": true,
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "electron-mocha": "^6.0.0",
-    "electron-rebuild": "2.2.0",
+    "electron-rebuild": "2.3.5",
     "fs-extra": "9.0.1",
     "jsdoc": "^3.5.4",
     "mocha": "^5.0.0",

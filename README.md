@@ -5,7 +5,7 @@ We had to fork this repo because we were unable to build and run node versions
 grunt run & packaging).
 
 The repo is a fork of the origin, so can be merged up from the fork - we have
-put our code onto the `v4.6.0-eagle.3` branch as we want to use 4.6.0 at the
+put our code onto the `v5.1.1-eagle.3` branch as we want to use 5.1.1 at the
 moment. When happy with changes use `npm publish` \* making sure that the
 package.json is set to publish to our artifactory6.
 
