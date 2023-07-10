@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "5.3.1",
+  "version": "5.3.1-eagle.beta.3",
   "description": "ZeroMQ for node.js",
   "main": "index",
   "gypfile": true,
@@ -27,8 +27,8 @@
   "scripts": {
     "install": "node-gyp-build || npm run build:libzmq",
     "build:libzmq": "node-gyp rebuild",
-    "prebuildify": "prebuildify -t 18.12.1 -t 16.18.1 -t 14.21.1 -t 12.22.12 -t electron@11.5.0 -t electron@21.2.3 --strip",
-    "prebuildify-ia32": "prebuildify --arch=ia32 -t 18.12.1 -t 16.18.1 -t 14.21.1 -t 12.22.12 -t electron@11.5.0 -t electron@21.2.3 --strip",
+    "prebuildify": "prebuildify -t node@14.16.0 -t electron@12.1.0 -t node@16.17.1 -t electron@22.3.14 --strip",
+    "prebuildify-ia32": "prebuildify --arch=ia32 -t node@14.16.0 -t electron@12.1.0 -t node@16.17.1 -t electron@22.3.14 --strip",
     "build:docs": "jsdoc -R README.md -d docs lib/*.js",
     "test": "mocha --expose-gc --slow 300",
     "test:electron": "electron-mocha --slow 300",
@@ -46,5 +46,8 @@
     "addon"
   ],
   "license": "MIT",
-  "author": "Justin Tulloss <justin.tulloss@gmail.com> (http://justin.harmonize.fm)"
+  "author": "Justin Tulloss <justin.tulloss@gmail.com> (http://justin.harmonize.fm)",
+  "publishConfig": {
+    "registry": "https://artifactory6.grabcad.net/artifactory/api/npm/npm-local/"
+  }
 }
