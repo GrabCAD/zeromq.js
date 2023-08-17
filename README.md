@@ -28,6 +28,9 @@ zeromq supports all major operating systems, including:
 
 Use **zeromq** and take advantage of the *elegant simplicity of binaries*.
 
+## SSYS Developers - How to upgrade and rebuild ZeroMQ
+
+Follow [this](./docs/how-to-upgrade-zeromq.md) guide.
 
 ## Installation - Users
 

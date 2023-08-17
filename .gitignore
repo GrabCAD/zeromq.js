@@ -13,7 +13,6 @@ npm-debug.log
 gyp-mac-tool
 out/
 zmq
-docs
 
 npm-debug.log
 prebuilds
