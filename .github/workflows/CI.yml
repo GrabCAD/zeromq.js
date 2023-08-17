@@ -19,12 +19,12 @@ jobs:
           - macos-11
           - windows-2022
         node_version:
-          - 18
+          - 16
         node_arch:
           - x64
         include:
           - os: windows-2022
-            node_version: 18
+            node_version: 16
             node_arch: x86
           # - os: macos-11
           #   node_version: 18
