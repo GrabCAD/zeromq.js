@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "5.3.1-eagle.beta.3",
+  "version": "5.3.1-eagle.1",
   "description": "ZeroMQ for node.js",
   "main": "index",
   "gypfile": true,
