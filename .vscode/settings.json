@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.env.windows": {
+        "GYP_MSVS_VERSION": "2017",
+        // LLVM is something to do with Unix. Not sure why prebuild keeps looking for it,
+        // but it (sometimes) doesn't like it being undefined.
+        "llvm_version": "0.0"
+    }
+}
