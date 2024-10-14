@@ -13,23 +13,6 @@ Additionally you will need to install Windows 10 SDK.
 - You can do this by opening up the `Visual Studio Installer` -> `Modify` and press the `Individual Components` tab at the top
 - Scroll (most likely to the bottom) and check the latest `Windows 10 SDK` and install.
 
-### node-gyp v9+
-
-You will need to install node-gyp v9+, this is done with the following commands:
-
-```shell
-nvm install 16.17.1
-nvm use 16.17.1
-npm install -g node-gyp@9.4
-```
-
-and check the correct version of node-gyp is installed:
-
-```shell
-> node-gyp -v
-v9.4.0 # Anything ^v9 should be efficient
-```
-
 ## Update the version
 
 In the [package.json](../package.json), update the version.
