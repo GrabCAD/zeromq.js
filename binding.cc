@@ -26,6 +26,7 @@
 #include <node_version.h>
 #include <node_buffer.h>
 #include <zmq.h>
+#include <cstdio>
 #if (ZMQ_VERSION < 40200)
 #include <zmq_utils.h>
 #endif
@@ -1546,13 +1547,23 @@ namespace zmq {
     Context::Initialize(target);
     Socket::Initialize(target);
   }
+
+  static void Cleanup(void* args) {
+    fprintf(stdout, "[ZeroMQ] Cleaning up\n");
+    // Socket::Unmonitor();
+    // Socket::Close();
+    // Context::Close();
+  }
 } // namespace zmq
 
 
 // module
 
 extern "C" NAN_MODULE_INIT(init) {
+  fprintf(stdout, "[ZeroMQ] Initializing\n");
   zmq::Initialize(target);
+
+  node::AddEnvironmentCleanupHook(v8::Isolate::GetCurrent(), zmq::Cleanup, nullptr);
 }
 
 NAN_MODULE_WORKER_ENABLED(zmq, init)
