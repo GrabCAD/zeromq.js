@@ -38,3 +38,16 @@ tool similar to Cmake. GYP was originally created to generate native IDE project
 files (Visual Studio, Xcode) for building Chromium.
 
 The `.gyp` file is structured as a Python dictionary.
+
+## EXTRA
+- Install VC++ redist
+- Symlink Node folder from NVM to `./build/win32/x64/node`
+- Maybe set CMake generator?:
+```sh
+set CMAKE_GENERATOR=Visual Studio 15 2017
+set CMAKE_GENERATOR_PLATFORM=x64
+```
+- Try doing `pnpm install` inside Visual Studio in a VS terminal? It should install some VCPKG stuff? Maybe also do `pnpm run build`??
+- Maybe don't worry in `pnpm install` fails?
+- Run `pnpm run build`
+- ???
