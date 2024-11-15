@@ -141,6 +141,24 @@
         "runtimeVersion": "12.1.0"
       },
       {
+        "name": "windows-x64-node-14.16.0-debug",
+        "dev": true,
+        "buildType": "Debug",
+        "os": "win32",
+        "arch": "x64",
+        "runtime": "node",
+        "runtimeVersion": "14.16.0"
+      },
+      {
+        "name": "windows-x64-electron-12.1.0-debug",
+        "dev": true,
+        "buildType": "Debug",
+        "os": "win32",
+        "arch": "x64",
+        "runtime": "electron",
+        "runtimeVersion": "12.1.0"
+      },
+      {
         "name": "windows-x64-node-14.17.0",
         "os": "win32",
         "arch": "x64",
