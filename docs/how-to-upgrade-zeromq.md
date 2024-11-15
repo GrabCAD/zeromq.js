@@ -55,3 +55,5 @@ gyp info find Python using Python version 3.10.1 found at "C:\Program Files\Pyth
 gyp info find VS using VS2017 (15.9.33926.519) found at:
 gyp info find VS "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools"
 ```
+
+If you get an issue along the lines of "couldn't find `llvm_version` when evaluating..." then you're likely using a version of Node that is too low. Your Node version needs to at least match the highest node version specified in the `prebuildify` script.
