@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "6.1.2",
+  "version": "6.1.2-eagle.1",
   "description": "Next-generation ZeroMQ bindings for Node.js",
   "main": "lib/index.js",
   "type": "commonjs",
@@ -71,7 +71,7 @@
   },
   "engines": {
     "node": ">= 10",
-    "pnpm": ">= 9"
+    "pnpm": ">= 8"
   },
   "files": [
     "CHANGELOG.md",
@@ -127,76 +127,46 @@
     "nodeAPI": "node-addon-api",
     "configurations": [
       {
-        "name": "linux-x64",
-        "os": "linux",
-        "arch": "x64",
-        "runtime": "node",
-        "runtimeVersion": "12.22.12"
-      },
-      {
-        "name": "linux-x64-dev",
-        "dev": true,
-        "buildType": "Debug",
-        "os": "linux",
-        "arch": "x64",
-        "runtime": "node",
-        "runtimeVersion": "12.22.12"
-      },
-      {
-        "name": "windows-x64",
+        "name": "windows-x64-node-14.16.0",
         "os": "win32",
         "arch": "x64",
         "runtime": "node",
-        "runtimeVersion": "12.22.12"
+        "runtimeVersion": "14.16.0"
       },
       {
-        "name": "windows-x86",
-        "os": "win32",
-        "arch": "ia32",
-        "runtime": "node",
-        "runtimeVersion": "12.22.12"
-      },
-      {
-        "name": "darwin-x64",
-        "os": "darwin",
-        "arch": "x64",
-        "runtime": "node",
-        "runtimeVersion": "12.22.12"
-      },
-      {
-        "name": "darwin-arm64",
-        "os": "darwin",
-        "arch": "arm64",
-        "runtime": "node",
-        "runtimeVersion": "12.22.12"
-      },
-      {
-        "name": "linux-x64-electron",
-        "os": "linux",
-        "arch": "x64",
-        "runtime": "electron",
-        "runtimeVersion": "12.22.12"
-      },
-      {
-        "name": "windows-x64-electron",
+        "name": "windows-x64-electron-12.1.0",
         "os": "win32",
         "arch": "x64",
         "runtime": "electron",
-        "runtimeVersion": "12.22.12"
+        "runtimeVersion": "12.1.0"
       },
       {
-        "name": "darwin-x64-electron",
-        "os": "darwin",
+        "name": "windows-x64-node-14.17.0",
+        "os": "win32",
+        "arch": "x64",
+        "runtime": "node",
+        "runtimeVersion": "14.16.0"
+      },
+      {
+        "name": "windows-x64-electron-14.2.9",
+        "os": "win32",
         "arch": "x64",
         "runtime": "electron",
-        "runtimeVersion": "12.22.12"
+        "runtimeVersion": "14.2.9"
       },
       {
-        "name": "darwin-arm64-electron",
-        "os": "darwin",
-        "arch": "arm64",
+        "name": "windows-x64-node-16.17.1",
+        "os": "win32",
+        "arch": "x64",
+        "runtime": "node",
+        "runtimeVersion": "16.17.1"
+      },
+      {
+        "name": "windows-x64-electron-22.3.14",
+        "os": "win32",
+        "arch": "x64",
         "runtime": "electron",
-        "runtimeVersion": "12.22.12"
+        "runtimeVersion": "22.3.14"
       }
     ],
     "targetDirectory": "build",
