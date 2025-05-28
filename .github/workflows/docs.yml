@@ -7,21 +7,19 @@ on:
 
 jobs:
   Docs:
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-22.04
+          - ubuntu-24.04
         node_version:
-          - 18
+          - 20
         node_arch:
           - x64
         cpp_arch:
           - x64
     env:
-      npm_config_zmq_draft: false
-      npm_config_zmq_shared: false
       npm_config_arch: ${{ matrix.node_arch }}
       npm_config_target_arch: ${{ matrix.node_arch }}
       setup_node_arch: ${{ matrix.node_arch }}
@@ -34,12 +32,12 @@ jobs:
         with:
           path: |
             ./node_modules/
-            ./build/
+            ~/vcpkg
           key:
             # prettier-ignore
-            "cache-OS:${{ matrix.os }}-arch:${{ matrix.node_arch}}-ZMQ_DRAFT:${{env.npm_config_zmq_draft }}-Node:${{ matrix.node_version}}-${{hashFiles('./package.json') }}-docs"
+            "docs-cache-OS:${{ matrix.os }}-arch:${{ matrix.node_arch}}-${{hashFiles('./pnpm-lock.yaml', './vcpkg.json', './CMakeLists.txt') }}"
           restore-keys: |
-            "cache-OS:${{ matrix.os }}-arch:${{ matrix.node_arch }}-ZMQ_DRAFT:${{ env.npm_config_zmq_draft }}-Node:${{ matrix.node_version }}-"
+            "docs-cache-OS:${{ matrix.os }}-arch:${{ matrix.node_arch }}-"
 
       - name: Env map
         run: |
@@ -57,8 +55,6 @@ jobs:
           architecture: ${{ matrix.cpp_arch }}
 
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: Install Node
         uses: actions/setup-node@v4
@@ -69,7 +65,7 @@ jobs:
       - name: Build Documentation
         run: |
           pnpm install
-          pnpm run build.doc
+          pnpm run docs.build
 
       - name: Deploy Documentation
         uses: Cecilapp/GitHub-Pages-deploy@v3

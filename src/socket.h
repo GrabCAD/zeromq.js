@@ -35,7 +35,10 @@ protected:
     inline void Close(const Napi::CallbackInfo& info);
 
     inline Napi::Value Bind(const Napi::CallbackInfo& info);
+    inline Napi::Value BindSync(const Napi::CallbackInfo& info);
+
     inline Napi::Value Unbind(const Napi::CallbackInfo& info);
+    inline Napi::Value UnbindSync(const Napi::CallbackInfo& info);
 
     inline void Connect(const Napi::CallbackInfo& info);
     inline void Disconnect(const Napi::CallbackInfo& info);
@@ -69,6 +72,9 @@ private:
        not necessarily automatically inlined by all compilers. */
     force_inline void Send(const Napi::Promise::Deferred& res, OutgoingMsg::Parts& parts);
     force_inline void Receive(const Napi::Promise::Deferred& res);
+
+    inline void JoinElement(const Napi::Value& value);
+    inline void LeaveElement(const Napi::Value& value);
 
     class Poller : public zmq::Poller<Poller> {
         std::reference_wrapper<Socket> socket;

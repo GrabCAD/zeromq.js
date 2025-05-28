@@ -2,6 +2,7 @@
 
 #include <cstdio>
 #include <future>
+#include <chrono>
 
 #include "./closable.h"
 #include "./outgoing_msg.h"
@@ -32,7 +33,8 @@ struct Terminator {
         });
 
         using namespace std::chrono_literals;
-        if (terminate.wait_for(500ms) == std::future_status::timeout) {
+        const auto timeout = 500ms;
+        if (terminate.wait_for(timeout) == std::future_status::timeout) {
             /* We can't use process.emitWarning, because the Node.js runtime
                has already shut down. So we mimic it instead. */
             (void)fprintf(stderr,
@@ -46,7 +48,7 @@ struct Terminator {
     }
 };
 
-class Module {
+class Module : public Napi::Addon<Module> {
     /* Contains shared global state that will be accessible by all
        agents/threads. */
     class Global {
@@ -67,7 +69,7 @@ class Module {
     };
 
 public:
-    explicit Module(Napi::Object exports);
+    explicit Module(Napi::Env env, Napi::Object exports);
 
     class Global& Global() {
         return *global;
