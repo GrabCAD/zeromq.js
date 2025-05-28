@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "5.3.1-eagle.12",
+  "version": "5.3.1-eagle-electron16.2.8-node16.9.1-1",
   "description": "ZeroMQ for node.js",
   "main": "index",
   "gypfile": true,
@@ -28,8 +28,8 @@
   "scripts": {
     "install": "node-gyp-build || npm run build:libzmq",
     "build:libzmq": "node-gyp rebuild",
-    "prebuildify": "prebuildify -t node@14.16.0 -t electron@12.1.0 -t node@14.17.0 -t electron@14.2.9 -t node@16.9.1 -t electron@16.2.8 -t node@16.17.1 -t electron@22.3.14 --strip",
-    "prebuildify-ia32": "prebuildify --arch=ia32 -t node@14.16.0 -t electron@12.1.0 -t node@14.17.0 -t electron@14.2.9 -t node@16.9.1 -t electron@16.2.8 -t node@16.17.1 -t electron@22.3.14 --strip",
+    "prebuildify": "prebuildify -t node@16.9.1 -t electron@16.2.8 --strip",
+    "prebuildify-ia32": "prebuildify --arch=ia32 -t node@16.9.1 -t electron@16.2.8 --strip",
     "prepublish": "npm run prebuildify",
     "build:docs": "jsdoc -R README.md -d docs lib/*.js",
     "test": "mocha --expose-gc --slow 300",
